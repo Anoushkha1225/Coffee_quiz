@@ -3,6 +3,9 @@ import StartPage from './components/StartPage'
 import QuestionCard from './components/QuestionCard'
 import ResultCard from './components/ResultCard'
 
+// Use Vite env variable if present, otherwise local dev backend
+const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000'
+
 export default function App() {
   const [quiz, setQuiz] = useState([])
   const [answers, setAnswers] = useState({})
@@ -14,7 +17,7 @@ export default function App() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch('http://127.0.0.1:5000/api/quiz')
+        const res = await fetch(`${API_BASE}/api/quiz`)
         const json = await res.json()
         setQuiz(json.quiz)
       } catch (e) {
@@ -51,7 +54,7 @@ export default function App() {
     e?.preventDefault?.()
     setLoading(true)
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/result', {
+      const res = await fetch(`${API_BASE}/api/result`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(answers)
@@ -76,7 +79,10 @@ export default function App() {
   if (result) {
     return (
       <div className="container" style={{ padding: 20 }}>
-        <ResultCard result={result} onReset={() => { setResult(null); setAnswers({}); setIndex(0); setStarted(false) }} />
+        <ResultCard
+          result={result}
+          onReset={() => { setResult(null); setAnswers({}); setIndex(0); setStarted(false) }}
+        />
       </div>
     )
   }
