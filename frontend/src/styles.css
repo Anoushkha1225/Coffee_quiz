@@ -1,0 +1,16 @@
+
+:root{--brand:#6b4f2b;--muted:#666}
+body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:#fff;padding:10px}
+.container{max-width:900px;margin:0 auto}
+header h1{margin:0;font-size:28px}
+.lead{color:var(--muted);margin-top:6px}
+.question{margin:16px 0;padding:14px;border-radius:10px;border:1px solid #f3e9e2;background:#fff9f6}
+.question legend{font-weight:600}
+.options{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.opt{display:flex;gap:12px;align-items:center;padding:8px;border-radius:8px;cursor:pointer}
+.opt input{width:18px;height:18px}
+.opt:hover{background:rgba(107,79,43,0.04)}
+.opt.selected{background:rgba(107,79,43,0.06)}
+.btn{background:var(--brand);color:#fff;padding:10px 14px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+.result-card{padding:18px;border-radius:12px;border:1px solid #eee;background:#fff}
+@media(max-width:640px){body{padding:12px}}
