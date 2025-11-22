@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
   "dev": "vite",
-  "build": "node ./node_modules/vite/dist/bin.js build",
+  "build": "npm run build",
   "preview": "vite preview"
 }
 ,
