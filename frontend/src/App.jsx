@@ -4,7 +4,7 @@ import QuestionCard from './components/QuestionCard'
 import ResultCard from './components/ResultCard'
 
 // Use Vite env variable if present, otherwise local dev backend
-const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000'
+const API_BASE = import.meta.env.VITE_API_URL || 'https://coffee-quiz-backend.onrender.com'
 
 export default function App() {
   const [quiz, setQuiz] = useState([])
